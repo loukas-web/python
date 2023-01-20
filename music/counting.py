@@ -17,3 +17,4 @@ for file in file_list:
 
 print({_ for _ in sampling_rate})
 print({_ for _ in channels})
+print(len(file_list) == len(sampling_rate) == len(channels))
