@@ -23,16 +23,16 @@ except FileExistsError as e:
     print(e)
 
 for file in file_list:
-    file_original = path + file
-    file_new = file_original.replace(ext, ".mka")
-    command = f"mkvmerge --ui-language en_US --output {file_new} --language 0:en {file_original}"
+    file_new = file.replace(ext, ".mka")
+    command = f"mkvmerge --ui-language en_US --output {path + file_new} --language 0:en {path + file}"
     return_code = os.system(command)
 
     match return_code:
         case 0:
-            os.rename(file_new, path + export + file.replace(ext, ".mka"))
-            os.remove(file_original)
+            os.rename(path + file_new, path + export + file_new)
+            os.rename(path + file, path + export + file)
         case 256:
-            os.rename(file_new, path + export_with_warnings + file.replace(ext, ".mka"))
+            os.rename(path + file_new, path + export_with_warnings + file_new)
+            os.rename(path + file, path + export_with_warnings + file)
         case 512:
-            os.rename(file_original, path + errored + file)
+            os.rename(file, path + errored + file)
