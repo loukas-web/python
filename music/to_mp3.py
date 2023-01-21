@@ -1,5 +1,4 @@
 import os
-import random
 
 path = "/mnt/2A548B6774E73BFC/MyMusic/mka/1/"
 file_list = os.listdir(path)
