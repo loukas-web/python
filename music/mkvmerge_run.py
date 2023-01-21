@@ -35,4 +35,5 @@ for file in file_list:
             os.rename(path + file_new, path + export_with_warnings + file_new)
             os.rename(path + file, path + export_with_warnings + file)
         case 512:
-            os.rename(file, path + errored + file)
+            print(file, return_code)
+            os.rename(path + file, path + errored + file)
