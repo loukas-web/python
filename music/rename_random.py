@@ -15,7 +15,7 @@ import random
 
 letters = string.ascii_letters + string.digits
 path = "/mnt/2A548B6774E73BFC/MyMusic/mp3/"
-ext = ".mp3"
+ext = ".mka"
 file_list = os.listdir(path)
 
 for file in file_list:

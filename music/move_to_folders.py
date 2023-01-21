@@ -1,8 +1,8 @@
 import os
 from math import ceil
 
-path = "/mnt/2A548B6774E73BFC/MyMusic/mp3/"
-file_list = sorted(os.listdir(path))
+path = "/mnt/2A548B6774E73BFC/MyMusic/mka/"
+file_list = os.listdir(path)
 file_count = len(file_list)
 
 files_per_folder = 5000
