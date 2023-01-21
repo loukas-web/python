@@ -1,8 +1,8 @@
 from pymediainfo import MediaInfo as mi
 import os
 
-path = "/mnt/2A548B6774E73BFC/MyMusic/mp3/"
-file_list = sorted(os.listdir(path))
+path = "/mnt/2A548B6774E73BFC/MyMusic/mp3/export/"
+file_list = os.listdir(path)
 
 sampling_rate = []
 channels = []
@@ -17,4 +17,4 @@ for file in file_list:
 
 print({_ for _ in sampling_rate})
 print({_ for _ in channels})
-print(len(file_list) == len(sampling_rate) == len(channels))
+print(len(file_list), len(sampling_rate), len(channels))
