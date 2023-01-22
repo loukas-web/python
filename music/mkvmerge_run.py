@@ -1,6 +1,6 @@
 import os
 
-path = "/mnt/2A548B6774E73BFC/MyMusic/mka/1/"
+path = "/mnt/2A548B6774E73BFC/MyMusic/mka/TOTG/"
 export = "export/"
 export_with_warnings = "export_with_warnings/"
 errored = "errored/"
