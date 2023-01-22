@@ -1,10 +1,10 @@
 import os
 
-path = "/mnt/2A548B6774E73BFC/MyMusic/temp/"
+path = "/mnt/2A548B6774E73BFC/MyMusic/mka/1/"
 export = "export/"
 export_with_warnings = "export_with_warnings/"
 errored = "errored/"
-ext = ".mp3"
+ext = ".aac"
 file_list = os.listdir(path)
 
 try:
