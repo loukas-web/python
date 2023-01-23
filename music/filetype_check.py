@@ -1,6 +1,6 @@
 import os
 
-path = "/mnt/2A548B6774E73BFC/MyMusic/mp3/"
+path = "/mnt/2A548B6774E73BFC/MyMusic/ogg/"
 ext = []
 filelist = os.listdir(path)
 

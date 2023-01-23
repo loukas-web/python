@@ -1,7 +1,7 @@
 from pymediainfo import MediaInfo as mi
 import os
 
-path = "/mnt/2A548B6774E73BFC/MyMusic/mka/export/"
+path = "/mnt/2A548B6774E73BFC/MyMusic/export/"
 file_list = os.listdir(path)
 count = 0
 
