@@ -1,12 +1,16 @@
 from glob import glob
-from os import stat
-import random
+from os import stat, rename
+from os.path import isfile
+from folder_create import create_folder
 
-path = '/mnt/2A548B6774E73BFC/MyMusic/export/'
-max_size = 734_003_200
+path = '/mnt/2A548B6774E73BFC/export/'
+max_size = 4_700_000_000
 size = 0
 count = 0
-filelist = glob(path + '*')
+filelist = [_ for _ in glob(path + '*') if isfile(_)]
+
+export_path = create_folder(path=path)
+export_list = []
 
 def sort_key(file):
     return stat(file).st_size
@@ -18,11 +22,20 @@ for file in range(len(filelist) - 1):
     file_size_new = stat(filelist[file + 1]).st_size
 
     if size + file_size <= max_size:
+        export_list.append(filelist[file])
         size += file_size
         count += 1
     
     if size - file_size + file_size_new <= max_size:
+        export_list.pop()
+        export_list.append(filelist[file+1])
         size -= file_size
         size += file_size_new
 
-print(size, count)
+    if size == max_size:
+        break
+
+print(size, count, export_path)
+
+for file in export_list:
+    rename(file, file.replace(path, export_path))
