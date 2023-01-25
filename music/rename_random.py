@@ -14,8 +14,8 @@ import os
 import random
 
 letters = string.ascii_letters + string.digits
-path = "/mnt/2A548B6774E73BFC/MyMusic/export/"
-ext = ".mka"
+path = "/mnt/2A548B6774E73BFC/temp/"
+ext = ".wma"
 file_list = os.listdir(path)
 
 for file in file_list:
