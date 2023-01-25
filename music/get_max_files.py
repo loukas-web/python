@@ -3,7 +3,7 @@ from os import stat, rename
 from os.path import isfile
 from folder_create import create_folder
 
-path = '/mnt/2A548B6774E73BFC/export/'
+path = '/mnt/2A548B6774E73BFC/MyMusic/export/'
 max_size = 4_700_000_000
 size = 0
 count = 0
@@ -17,20 +17,23 @@ def sort_key(file):
 
 filelist.sort(key=sort_key)
 
-for file in range(len(filelist) - 1):
-    file_size = stat(filelist[file]).st_size
-    file_size_new = stat(filelist[file + 1]).st_size
+for file in range(1, len(filelist)):
+    file_size = stat(filelist[file-1]).st_size
+    file_size_new = stat(filelist[file]).st_size
 
     if size + file_size <= max_size:
-        export_list.append(filelist[file])
+        export_list.append(filelist[file-1])
         size += file_size
-        count += 1
-    
-    if size - file_size + file_size_new <= max_size:
+        count += 1    
+    elif size - file_size + file_size_new <= max_size:
         export_list.pop()
-        export_list.append(filelist[file+1])
+        export_list.append(filelist[file])
         size -= file_size
         size += file_size_new
+    
+    if file ==len(filelist) - 1 and size + file_size_new <= max_size:
+        export_list.append(filelist[file])
+
 
     if size == max_size:
         break

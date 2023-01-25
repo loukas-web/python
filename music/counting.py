@@ -1,8 +1,8 @@
 from pymediainfo import MediaInfo as mi
 import os
 
-path = "/mnt/2A548B6774E73BFC/MyMusic/ogg/"
-file_list = [_ for _ in os.listdir(path) if ".ogg" in _]
+path = "/mnt/2A548B6774E73BFC/MyMusic/temp/"
+file_list = [_ for _ in os.listdir(path) if ".mka" in _]
 sampling_rate = []
 channels = []
 duration = []
