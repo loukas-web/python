@@ -1,12 +1,15 @@
-#from faulthandler import disable
+# from faulthandler import disable
 from tkinter import *
 
 root = Tk()
+
+
 def ClickMe():
     myLabel3 = Label(root, text=myEntry.get())
     myLabel3.grid(row=3)
 
-#create a label widget and shoving it to the screen
+
+# create a label widget and shoving it to the screen
 myLabel1 = Label(root, text="Hello World!")
 myLabel2 = Label(root, text="My name is Loukas")
 
