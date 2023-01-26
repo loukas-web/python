@@ -7,7 +7,6 @@ sampling_rate = []
 channels = []
 duration = []
 
-
 for file in file_list:
     try:
         parse = mi.parse(path + file)
