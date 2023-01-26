@@ -5,7 +5,7 @@ path = "/mnt/2A548B6774E73BFC/MyMusic/mka/"
 file_list = os.listdir(path)
 file_count = len(file_list)
 
-files_per_folder = 5000
+files_per_folder = 5_000
 
 folder_number = ceil(file_count / files_per_folder)
 folder_digits = len(str(folder_number))
