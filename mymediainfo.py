@@ -1,13 +1,15 @@
 from glob import glob
 from pymediainfo import MediaInfo
 
-def frequency(freq={}):
+
+def frequency(freq):
     for item in freq:
-        if (item in freq):
+        if item in freq:
             freq[item] += 1
         else:
             freq[item] = 1
     return freq
+
 
 def matchframerate(frame_rate):
     match frame_rate:
@@ -34,27 +36,38 @@ def matchframerate(frame_rate):
         case '59.94':
             return '60000/1001p'
         case '59.940':
-            return '60000/1001p'        
-        case other:
+            return '60000/1001p'
+        case _:
             return frame_rate
 
-def namenoext(pathtovideo):
-    return pathtovideo[:pathtovideo.rfind('.')]
 
-def ext(pathtovideo):
-    return pathtovideo[pathtovideo.rfind('.'):]
+def namenoext(path_to_video):
+    return path_to_video[:path_to_video.rfind('.')]
 
-def folderpath(pathtovideo):
-    return pathtovideo[:pathtovideo.rfind('/') + 1]
 
-def tomkvsrt(pathtovideo):
-    media_info = MediaInfo.parse(pathtovideo)
-    return f'mkvmerge --ui-language en_US --output "{namenoext(pathtovideo)}.mkv" --language 0:en --display-dimensions 0:{media_info.video_tracks[0].width}x{media_info.video_tracks[0].height} --default-duration 0:{matchframerate(media_info.video_tracks[0].frame_rate)} --fix-bitstream-timing-information 0:1 --language 1:en "(" "{namenoext(pathtovideo)}{ext(pathtovideo)}" ")" --language 0:el "(" "{namenoext(pathtovideo)}.srt" ")" --track-order 0:1,0:0,1:0\n'
+def ext(path_to_video):
+    return path_to_video[path_to_video.rfind('.'):]
 
-def savetofile(pathtovideo):
-    f = open(folderpath(pathtovideo) + 'run', 'a')
-    f.write(tomkvsrt(pathtovideo))
-    f.close()
+
+def folderpath(path_to_video):
+    return path_to_video[:path_to_video.rfind('/') + 1]
+
+
+def tomkvsrt(path_to_video):
+    media_info = MediaInfo.parse(path_to_video)
+    return f'mkvmerge --ui-language en_US --output "{namenoext(path_to_video)}.mkv" --language 0:en ' \
+           f'--display-dimensions 0:{media_info.video_tracks[0].width}x{media_info.video_tracks[0].height} ' \
+           f'--default-duration 0:{matchframerate(media_info.video_tracks[0].frame_rate)} ' \
+           f'--fix-bitstream-timing-information 0:1 --language 1:en "(" "{namenoext(path_to_video)}' \
+           f'{ext(path_to_video)}" ")" --language 0:el "(" "{namenoext(path_to_video)}.srt" ")" --track-order 0:1,' \
+           f'0:0,1:0\n'
+
+
+def savetofile(path_to_video):
+    file = open(folderpath(path_to_video) + 'run', 'a')
+    file.write(tomkvsrt(path_to_video))
+    file.close()
+
 
 pathofvideos = input('Give the path of the videos: ')
 

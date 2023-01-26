@@ -10,4 +10,3 @@ for file in filelist:
     duration.append(float(file_parse.audio_tracks[0].duration))
 
 print(len(filelist), sum(duration) / 1000 / 3600)
-

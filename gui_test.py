@@ -4,7 +4,7 @@ from tkinter import *
 root = Tk()
 
 
-def ClickMe():
+def clickme():
     myLabel3 = Label(root, text=myEntry.get())
     myLabel3.grid(row=3)
 
@@ -13,7 +13,7 @@ def ClickMe():
 myLabel1 = Label(root, text="Hello World!")
 myLabel2 = Label(root, text="My name is Loukas")
 
-myButton = Button(root, text="Click Me!", fg='blue', command=ClickMe)
+myButton = Button(root, text="Click Me!", fg='blue', command=clickme)
 
 myEntry = Entry(root, width=50)
 

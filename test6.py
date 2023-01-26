@@ -3,7 +3,7 @@ from pymediainfo import MediaInfo as mi
 
 file_parse = []
 file_path: str = "/mnt/2A548B6774E73BFC/MyMusic/mp3/"
-file_list:list[str] = sorted(os.listdir(file_path))
+file_list: list[str] = sorted(os.listdir(file_path))
 
 for file in file_list:
     file_parse.append(mi.parse(file_path + file))
