@@ -1,13 +1,16 @@
 # This script renames the files in a specific folder in random names.
 # Information
 #
-# 1. For the name generation, it uses capital letters, lower letters and numbers. If you want something else, change the "letters" variable.
-# 1. The "letters" variable must be a string with whatever characters, numbers or punctuation you want the name to have.
-# 1. For the "letter" variable use the ascii caracters, digits and punctuation from the "string" import.
+# 1. For the name generation, it uses capital letters, lower letters and numbers. If you want something else,
+# change the "letters" variable. 1. The "letters" variable must be a string with whatever characters, numbers or
+# punctuation you want the name to have. 1. For the "letter" variable use the ascii caracters, digits and punctuation
+# from the "string" import.
 #
-# 2. For the randomization use the random.sample(). It takes 2 variables. The first one is the string "letters" and the second one is the number of characters you want to take from the string.
+# 2. For the randomization use the random.sample(). It takes 2 variables. The first one is the string "letters" and
+# the second one is the number of characters you want to take from the string.
 
-# 3. Warning: The folder must contain only one type of files (like mp3). Whatever type of files are you using, set the right file extension in the "ext" variable
+# 3. Warning: The folder must contain only one type of files (like mp3). Whatever type of files are you using,
+# set the right file extension in the "ext" variable
 
 import string
 import os
