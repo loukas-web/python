@@ -1,3 +1,4 @@
+from os import stat
 from os import mkdir
 from glob import glob
 from random import sample
@@ -36,3 +37,7 @@ def get_extensions(filelist: list[str]) -> set:
 def make_directory_by_extension(path: str, unique_extensions: set):
     for extension in unique_extensions:
         make_directory(path + extension + "/")
+
+
+def get_file_size(pathfile: str) -> int:
+    return stat(pathfile).st_size
