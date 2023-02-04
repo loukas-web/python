@@ -2,7 +2,7 @@ from os import rename
 from glob import glob
 from my_import import random_string, get_single_extension, get_file_size
 
-path = "/mnt/2A548B6774E73BFC/MyMusic/wmv/"
+path = "/run/media/loukas/DOCKER4/export/50000/"
 count = 0
 file_list = glob(path + '*')
 

@@ -1,11 +1,14 @@
 import csv
 
 path = '/home/loukas/asimakis.csv'
-
-with open(path) as file:
+path2 = '/home/loukas/asimakis2.csv'
+with open(path, 'r') as file:
     data = list(csv.reader(file))
 
-print(data)
+a = [[1, 1], [2, 2]]
 
-for d in data:
-    print(d)
+with open(path, 'w') as file:
+    writer = csv.writer(file)
+    writer.writerows(a)
+    
+    
